@@ -1,42 +1,47 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<div class="login-page">
+  
+<div class="container d-flex align-items-center">
+    <div class="form-holder has-shadow">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="info d-flex align-items-center">
+                  <div class="content">
+                    <div class="logo">
+                      <h1>Dashboard</h1>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  </div>
+                </div>
+              </div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+              <div class="col-lg-6 bg-white">
+                <div class="form d-flex align-items-center">
+                  <div class="content">
+
+                    <form method="POST" action="{{ route('login') }}" class="form-validate">
                         @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
+                        <div class="form-group">
+                            <input id="email" type="email" name="email" class="input-material" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            <label for="login-username" class="label-material">Correo electronico</label>
+                            @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                        <div class="form-group">
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            <input id="password" type="password" class="input-material" @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            <label for="login-password" class="label-material">Contraseña</label>
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="form-group row">
@@ -70,4 +75,6 @@
         </div>
     </div>
 </div>
+</div>
 @endsection
+

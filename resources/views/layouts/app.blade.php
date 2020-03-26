@@ -9,16 +9,19 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href={{asset("css/bootstrap.min.css")}}>
+    <!-- Font Awesome CSS-->
+  <link rel="stylesheet" href={{asset('css/font-awesome.min.css')}}>
+    <!-- Custom Font Icons CSS-->
+  <link rel="stylesheet" href={{asset('css/font.css')}}>
+    <!-- Google fonts - Muli-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
+    <!-- theme stylesheet-->
+  <link rel="stylesheet" href={{asset('css/style.default.css')}} id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href={{asset('css/custom.css')}}>
 </head>
+ 
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -71,10 +74,13 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
             @yield('content')
-        </main>
     </div>
 </body>
+    <script src={{asset('js/jquery.min.js')}}></script>
+    <script src={{asset('js/popper.js/umd/popper.min.js')}}> </script>
+    <script src={{asset('js/bootstrap.min.js')}}></script>
+    <script src={{asset('js/jquery-validation/jquery.validate.min.js')}}></script>
+    <script src={{asset('js/front.js')}}></script>
+  </body>
 </html>

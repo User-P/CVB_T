@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -15,7 +16,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->Increments('id');
-            $table->string('status');
+            $table->string('status')->default(User::ACTIVE);
             $table->string('name');
             $table->string('middlename');
             $table->string('lastname');
@@ -32,7 +33,6 @@ class CreateUsersTable extends Migration
             $table->integer('municipality_id')->unsigned();
             $table->foreign('municipality_id')->references('id')->on('municipalities');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
